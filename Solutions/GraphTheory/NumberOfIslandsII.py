@@ -2,11 +2,11 @@ def numIslands(grid):
     output = 0
 
     def dfs(grid, i, j):
-        if grid[i][j] == "1":
+        if 0 <= i < len(grid) and 0 <= j < len(grid[0]) and grid[i][j] == "1":
             grid[i][j] = "-1"   # visited
             for ii, jj in (1, 0), (0,1), (-1,0), (0, -1):
-                i, j = i + ii, j + jj
-                dfs(grid, i, j)
+                i2, j2 = i + ii, j + jj
+                dfs(grid, i2, j2)
         else:
             return
 
@@ -20,8 +20,7 @@ def numIslands(grid):
 
 
 print(numIslands([
-  ["1","1","1","1","0"],
-  ["1","1","0","1","0"],
-  ["1","1","0","0","0"],
-  ["0","0","0","0","0"]
-]))
+    ["1","1","0","0","0"],
+    ["1","1","0","0","0"],
+    ["0","0","1","0","0"],
+    ["0","0","0","1","1"]]))
