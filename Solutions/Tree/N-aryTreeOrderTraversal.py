@@ -14,3 +14,5 @@ def levelOrder(root):
 
 
     traversal(root, currentLevel)
+
+    return output
