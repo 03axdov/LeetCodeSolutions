@@ -25,7 +25,7 @@ def adolescentArchitecture(n, blocks):
                 if output[-1][1] < base: return 'impossible'
                 output.append(['cube', base])
             else:
-                if min(cubeBases[0], cylinderBases[0]) > output[-1][1]: return 'impossible'
+                if min(cubeBases[0], int((cylinderBases[0] / 2**0.5) * 2)) > output[-1][1]: return 'impossible'
                 if cubeBases[0] > cylinderBases[0]:
                     base = cubeBases.popleft()
                     output.append(['cube', base])
@@ -50,8 +50,7 @@ def adolescentArchitecture(n, blocks):
 
     for i in output:
         if i[0] == 'cylinder':
-            i[1] /= 2**0.5
-            i[1] = int(i[1])
+            i[1] = int(i[1] / 2**0.5)
     return output
 
 print(adolescentArchitecture(3, [
