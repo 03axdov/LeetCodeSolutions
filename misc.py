@@ -1,4 +1,6 @@
-for t, i in enumerate([1,2]):
-    print("A")
+s = "AS"
+s2 = s
 
-print(t)
+s2 += "B"
+print(s)
+print(s2)
