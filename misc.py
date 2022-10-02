@@ -1,6 +1,2 @@
-s = "AS"
-s2 = s
-
-s2 += "B"
-print(s)
-print(s2)
+dic = {"A": 1, "B": 2}
+print(len(dic))
