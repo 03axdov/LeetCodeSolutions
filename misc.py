@@ -1,2 +1,5 @@
-dic = {"A": 1, "B": 2}
-print(len(dic))
+c = 1
+if c:
+    c += 1
+
+print(c)
