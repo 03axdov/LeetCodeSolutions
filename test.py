@@ -1,2 +1,3 @@
-li = [1,2,3]
-print(li[1:len(li)])
+li = []
+li.append(29 / 2)
+print(li)
