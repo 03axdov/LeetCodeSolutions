@@ -1,18 +1,13 @@
-from collections import Counter
-def isHappy(n: int):
-    count = Counter()
+def isHappy(self, n):
+    seen = set()
+
     current = n
-
-    while True:
-        if current == 1: return True
-        if count[current] != 0: return False
-
-        new = 0
-        for char in str(current):
-            new += int(char) ** 2
-
-        count[current] += 1
-        current = new
+    while current != 1 and current not in seen:
+        seen.add(current)
         
-
-print(isHappy(2))
+        temp = 0
+        for digit in str(current):
+            temp += int(digit) ** 2
+        current = temp
+        
+    return current not in seen

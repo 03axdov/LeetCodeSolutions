@@ -1,32 +1,37 @@
-class ListNode:
-    def __init__(self, val=0, next=None):
-        self.val = val
-        self.next = next
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution(object):
+    def addTwoNumbers(self, l1, l2):
+        carry = 0
+        res = ListNode(-1)
+        head = res
         
-def getNumber(node: Optional[ListNode]) -> int:
-    current = 0
-    exp = 0
-    while node:
-        current += node.val * (10**exp)
-        exp += 1
-        node = node.next
-
-    return current
-
-def toLinkedList(i: int) -> Optional[ListNode]:
-    numString = str(i)[::-1]
-    prev = ListNode(val=int(numString[0]))
-    first = prev
-    for char in numString[1:]:
-        nextNode = ListNode(val=int(char))
-        prev.next = nextNode
-        prev = nextNode
-
-    return first
-
-
-def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
-    num1 = getNumber(l1)
-    num2 = getNumber(l2)
-
-    return toLinkedList(num1 + num2)
+        while l1 or l2 or carry:
+            if not l1 and not l2:
+                res.next = ListNode(carry)
+                res = res.next
+                carry = 0
+            elif not l1:
+                s = carry + l2.val
+                res.next = ListNode(s % 10)
+                res = res.next
+                l2 = l2.next
+                carry = s // 10
+            elif not l2:
+                s = carry + l1.val
+                res.next = ListNode(s % 10)
+                res = res.next
+                l1 = l1.next
+                carry = s // 10
+            else:
+                s = carry + l1.val + l2.val
+                res.next = ListNode(s % 10)
+                res = res.next
+                l1 = l1.next
+                l2 = l2.next
+                carry = s // 10
+            
+        return head.next
