@@ -1,3 +1,2 @@
-li = []
-li.append(29 / 2)
-print(li)
+for i in range(2, 0, -1):
+    print(i)
