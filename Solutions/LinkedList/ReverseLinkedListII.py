@@ -1,4 +1,5 @@
-def reverseBetween(self, head, left, right):
+def reverseBetween(self, head: Optional[ListNode], left: int, right: int) -> Optional[ListNode]:
+
     if not head or left == right:
         return head
 

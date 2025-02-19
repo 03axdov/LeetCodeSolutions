@@ -1,18 +1,14 @@
-def isIsomorphic(s, t):
-    lettersS = {}
-
+def isIsomorphic(self, s: str, t: str) -> bool:
+    dicS = {}
+    seen = set()
+    
+    if len(s) != len(t): return False
     for i in range(len(s)):
-        if t[i] not in lettersS.keys():
-            if s[i] not in lettersS.values():
-                lettersS[t[i]] = s[i]
-            else:
-                return False
-        elif lettersS[t[i]] == s[i]:
-            continue
-        else:
-            return False
-
+        if s[i] not in dicS.keys():
+            if t[i] in seen: return False
+            dicS[s[i]] = t[i] 
+        
+        seen.add(t[i])
+        if dicS[s[i]] != t[i]: return False
+        
     return True
-
-
-print(isIsomorphic("paper", "title"))
