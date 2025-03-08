@@ -1,11 +1,11 @@
-class ListNode {
-    val: number
-    next: ListNode | null
-    constructor(val?: number, next?: ListNode | null) {
-        this.val = (val===undefined ? 0 : val)
-        this.next = (next===undefined ? null : next)
-    }
-}
+// class ListNode {
+//     val: number
+//     next: ListNode | null
+//     constructor(val?: number, next?: ListNode | null) {
+//         this.val = (val===undefined ? 0 : val)
+//         this.next = (next===undefined ? null : next)
+//     }
+// }
 
 
 const getLength = (list: ListNode): number =>  {
@@ -41,7 +41,7 @@ const split = (list: ListNode): {f : ListNode, s : ListNode } => {
     return {f : first.next!, s : second.next!};
 }
 
-const merge = (list1: ListNode, list2: ListNode): ListNode | null =>  {
+const mergeH = (list1: ListNode, list2: ListNode): ListNode | null =>  {
     const res = new ListNode(-1);
     let curr = res;
 
@@ -69,5 +69,5 @@ const sortList = (head: ListNode | null): ListNode | null => {
     if(!head?.next) return head;
     let spl = split(head);
     
-    return merge(sortList(spl.f)!, sortList(spl.s)!);
+    return mergeH(sortList(spl.f)!, sortList(spl.s)!);
 }
